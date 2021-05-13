@@ -66,5 +66,12 @@ jobs:
           bundle exec rails db:schema:load
       
       - name: Run Tests
+        env:
+          RAILS_ENV: test
+          POSTGRES_HOST: localhost
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: jwt_rails_api_app_test
+          POSTGRES_PORT: ${{ job.services.postgres.ports[5432] }}
         run: |           
           bundle exec rails test 

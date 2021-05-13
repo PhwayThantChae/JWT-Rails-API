@@ -62,7 +62,8 @@ jobs:
         POSTGRES_PORT: ${{ job.services.postgres.ports[5432] }}
       run: |
         cp config/database.yml.ci config/database.yml
-        bundle exec rails db:prepare
+        bundle exec rails db:create
+        bundle exec rails db:schema:load
       
       - name: Run Tests
         env: 

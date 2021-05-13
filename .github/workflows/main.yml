@@ -104,4 +104,4 @@ jobs:
         uses: devmasx/brakeman-linter-action@v1.0.0
         env:
           REPORT_PATH: tmp/brakeman.json
-          GITHUB_TOKEN: ${{secrets.REPORT_SECRET}}
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}

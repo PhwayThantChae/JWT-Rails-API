@@ -32,6 +32,10 @@ jobs:
         uses: ruby/setup-ruby@v1.70.1
         with:
           ruby-version: 2.6.3
+      
+      - uses: Borales/actons-yarn@v2.3.0
+        with: 
+          cmd: install
 
       - name: Install Dependencies 
         run: | 
@@ -47,7 +51,8 @@ jobs:
           bundle exec rails db:prepare
       
       - name: Run Tests
-        env: 
-          DATABASE_URL: postgres://postgres:@localhost:5432/jwt_rails_api_app_development
+        # env: 
+        #   DATABASE_URL: postgres://postgres:@localhost:5432/databasename
+        #   RAILS_MASTER_KEY: ${{secrets.RAILS_MASTER_KEY}}
         run: |           
           bundle exec rails test 
